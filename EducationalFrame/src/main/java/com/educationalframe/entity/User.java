@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
@@ -32,7 +32,4 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-
 }
