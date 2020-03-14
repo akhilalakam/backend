@@ -10,7 +10,7 @@ public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long departmentId;
-	private String departmentNamer;
+	private String departmentName;
 	private Integer departmentNo;
 	public Long getDepartmentId() {
 		return departmentId;
@@ -18,11 +18,11 @@ public class Department {
 	public void setDepartmentId(Long departmentId) {
 		this.departmentId = departmentId;
 	}
-	public String getDepartmentNamer() {
-		return departmentNamer;
+	public String getDepartmentName() {
+		return departmentName;
 	}
-	public void setDepartmentNamer(String departmentNamer) {
-		this.departmentNamer = departmentNamer;
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
 	}
 	public Integer getDepartmentNo() {
 		return departmentNo;
