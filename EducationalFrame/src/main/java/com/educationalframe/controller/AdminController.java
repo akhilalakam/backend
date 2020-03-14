@@ -6,12 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.educationalframe.entity.Course;
 import com.educationalframe.entity.Department;
 import com.educationalframe.entity.Subject;
+import com.educationalframe.entity.University;
+import com.educationalframe.response.UniversityOfCollegeResponse;
 import com.educationalframe.service.AdminService;
 
 @RestController
@@ -35,5 +39,17 @@ public class AdminController {
 	public ResponseEntity<List<Subject>> getAllSubjects(){
 		return new ResponseEntity<List<Subject>>(adminService.findAllSubjects(), HttpStatus.OK);
 	}
+	@RequestMapping(value="/getAllUniversities",method = RequestMethod.GET)
+	public List<University> getAllUniversities()
+	{
+		return adminService.getAllUniversities();
+	}
+	
+	@RequestMapping(value="/getUniversityOfColleges/{universityId}",method = RequestMethod.GET)
+	public List<UniversityOfCollegeResponse> getUniversityOfColleges(@PathVariable ("universityId") Long universityId)
+	{
+		return adminService.getUniversityOfColleges(universityId);
+	}
+
 
 }

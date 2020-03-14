@@ -19,17 +19,19 @@ public class UniversityCollegeMapping {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="college_id")
-	private University univesity;
+	private University university;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="university_id")
 	private College college;
 
-	public University getUnivesity() {
-		return univesity;
+	
+
+	public University getUniversity() {
+		return university;
 	}
 
-	public void setUnivesity(University univesity) {
-		this.univesity = univesity;
+	public void setUniversity(University university) {
+		this.university = university;
 	}
 
 	public College getCollege() {
