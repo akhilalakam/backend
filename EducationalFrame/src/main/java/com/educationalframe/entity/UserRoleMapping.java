@@ -43,7 +43,11 @@ public class UserRoleMapping {
 		return role;
 	}
 
+<<<<<<< HEAD
 	public void setRole(Role role) {
 		this.role = role;
 	}
+=======
+
+>>>>>>> added some files
 }
