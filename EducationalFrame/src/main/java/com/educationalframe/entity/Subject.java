@@ -1,6 +1,6 @@
 package com.educationalframe.entity;
 
-public class Subjects {
+public class Subject {
 	
 	private Long subjectId;
 	private String subjectName;
