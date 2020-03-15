@@ -1,17 +1,11 @@
-package com.educationalframe.entity;
+package com.educationalframe.response;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+public class UniversityOfCollegeResponse {
 
-@Entity
-public class College {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long collegeId;
 	private String collegeName;
+	private String collegeLocation;
 	public Long getCollegeId() {
 		return collegeId;
 	}
@@ -23,6 +17,12 @@ public class College {
 	}
 	public void setCollegeName(String collegeName) {
 		this.collegeName = collegeName;
+	}
+	public String getCollegeLocation() {
+		return collegeLocation;
+	}
+	public void setCollegeLocation(String collegeLocation) {
+		this.collegeLocation = collegeLocation;
 	}
 	
 	
