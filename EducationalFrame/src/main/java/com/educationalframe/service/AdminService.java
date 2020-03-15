@@ -23,10 +23,18 @@ public class AdminService {
 	
 	@Autowired
 	private CourseRepository courseRepository;
+	
 	@Autowired
 	private DepartmentRepository departmentRepository;
+	
 	@Autowired
 	private SubjectRepository subjectRepository;
+
+    @Autowired
+	private UniversityRepository universityRepository;
+    
+    @Autowired
+    private UniversityCollegeMappingRepository universityCollegeMappingRepository;
 	
 	public List<Course> findAllCourses(){
 		return courseRepository.findAll();
@@ -40,15 +48,6 @@ public class AdminService {
 		return subjectRepository.findAll();
 	}
 	
-	
-	
-
-    @Autowired
-	private UniversityRepository universityRepository;
-    
-    @Autowired
-    private UniversityCollegeMappingRepository universityCollegeMappingRepository;
-    
     public List<University> getAllUniversities()
     {
     	return universityRepository.findAll();
@@ -57,17 +56,15 @@ public class AdminService {
     
     public List<UniversityOfCollegeResponse> getUniversityOfColleges(Long universityId)
     {
-    	List<UniversityCollegeMapping> universityCollegeMappings= universityCollegeMappingRepository.findByUniversityUniversityId(universityId);
+    	List<UniversityCollegeMapping> universityCollegeMappings = universityCollegeMappingRepository.findByUniversityUniversityId(universityId);
     	
-    	List<UniversityOfCollegeResponse> universityOfCollegeOfResponses=new ArrayList<>();
+    	List<UniversityOfCollegeResponse> universityOfCollegeOfResponses = new ArrayList<>();
     	
-    	for (UniversityCollegeMapping universityCollegeMapping : universityCollegeMappings) {
-    		
-    		UniversityOfCollegeResponse universityOfCollegeOfResponse= new UniversityOfCollegeResponse();
+    	for (UniversityCollegeMapping universityCollegeMapping : universityCollegeMappings) {		
+    		UniversityOfCollegeResponse universityOfCollegeOfResponse = new UniversityOfCollegeResponse();
         	universityOfCollegeOfResponse.setCollegeId(universityCollegeMapping.getCollege().getCollegeId());
         	universityOfCollegeOfResponse.setCollegeName(universityCollegeMapping.getCollege().getCollegeName());
-        	universityOfCollegeOfResponses.add(universityOfCollegeOfResponse);
-        	
+        	universityOfCollegeOfResponses.add(universityOfCollegeOfResponse);	
 		}
     	return universityOfCollegeOfResponses;
     	
